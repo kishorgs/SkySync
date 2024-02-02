@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://ipinfo.io?token=48e19ff93ce4c5", {
+      .get("https://ipinfo.io?token=48e19ff93ce4c5", {
         params: { format: "jsonp" },
       })
       .then((response) => {
