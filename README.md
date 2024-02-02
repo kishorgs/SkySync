@@ -87,3 +87,10 @@ date-fns is the modular path to date/time manipulation
 react-loader-spinner is used to add spinner to the application
 
   `npm install react-loader-spinner`
+
+
+
+
+### The above project is live in the below link
+
+[https://sky-sync.netlify.app/](https://sky-sync.netlify.app/)
