@@ -4,8 +4,10 @@ import "./App.css";
 import { MdOutlineSearch } from "react-icons/md";
 import { format } from "date-fns";
 import { MagnifyingGlass } from "react-loader-spinner";
+import DarkMode from "./DarkMode/DarkMode/DarkMode";
+import Select from "react-select";
 
-function App() {
+const App = () => {
   const [city, setCity] = useState("");
   const [unit, setUnit] = useState("Celsius"); // Default to Celsius
   const [currentWeather, setCurrentWeather] = useState({});
@@ -22,8 +24,6 @@ function App() {
         params: { format: "jsonp" },
       })
       .then((response) => {
-        // console.log(response.data.city);
-        // setCity(response.data.city);
         searchWeather(response.data.city);
       })
       .catch((error) => {
@@ -32,7 +32,7 @@ function App() {
   }, []);
 
   const searchWeather = (city) => {
-    setIsloaded(false)
+    setIsloaded(false);
     Promise.all([
       axios.get(`${baseUrl}/current.json?q=${city}&key=${apiKey}&aqi=yes`),
       axios.get(
@@ -46,12 +46,11 @@ function App() {
         setCurrentWeather(currentWeatherResponse.data);
 
         setForecast(forecastResponse.data.forecast.forecastday);
-        
-        // Adding Some Delay for loading bar to appear
-        setTimeout(()=>{
-          setIsloaded(true);
-        },1500)
 
+        // Adding Some Delay for loading bar to appear
+        setTimeout(() => {
+          setIsloaded(true);
+        }, 1500);
       })
       .catch((error) => {
         setIsloaded(true);
@@ -59,18 +58,49 @@ function App() {
 
         if (errorData.code === 1006) {
           alert(errorData.message);
-          
         }
 
         if (errorData.code === 1003) {
           alert("Please Enter a City/Country Name");
-          
         }
       });
   };
 
   const toggleUnits = () => {
     setUnit((prevUnit) => (prevUnit === "Celsius" ? "Fahrenheit" : "Celsius"));
+  };
+
+  const options = [
+    { value: "metric", label: "Celsius" },
+    { value: "imperial", label: "Fahrenheit" },
+  ];
+
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      width: "12rem",
+      background:"transparent",
+      
+    }),
+    menu: (provided) => ({
+      ...provided,
+      width: "12rem",
+      background: 'aliceblue',
+      display:"block"
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      display:"flex",
+      flexDirection:"column"
+    }),
+    option: (provided) => ({
+      ...provided,
+      textAlign: "left",
+    }),
+    SelectContainer: (provided)=>({
+      ...provided,
+      color:"",
+    }),
   };
 
   return (
@@ -82,7 +112,7 @@ function App() {
               <div id="container">
                 <div id="select">
                   <div id="search">
-                    <MdOutlineSearch fontSize={30} />
+                    <MdOutlineSearch fontSize={30} className="search-icon" />
                     <input
                       type="text"
                       value={city}
@@ -96,13 +126,21 @@ function App() {
                     </button>
                   </div>
                   <div>
-                    <select id="unitToggle" onChange={toggleUnits}>
-                      <option value="metric">Celsius</option>
-                      <option value="imperial">Fahrenheit</option>
-                    </select>
+                    <Select
+                      placeholder="Select Unit"
+                      options={options}
+                      id="unitToggle"
+                      onChange={toggleUnits}
+                      value={{ value: unit.toLowerCase(), label: unit }}
+                      styles={customStyles}
+                      classNamePrefix="react-select"
+                    />
+                  </div>
+                  <div>
+                    <DarkMode />
                   </div>
                 </div>
-                
+
                 <h2>Current Weather </h2>
                 <div id="weather-div">
                   <img
@@ -133,7 +171,7 @@ function App() {
                   </p>
                 </div>
 
-                <h2>5-Days Weather Forecast</h2>
+                <h2>3-Days Weather Forecast</h2>
                 <div id="Weekly-forecast">
                   {forecast.map((entry, index) => (
                     <div id="card" key={index}>
@@ -162,24 +200,21 @@ function App() {
         </>
       ) : (
         <div className="loader">
-          
-        <MagnifyingGlass
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="magnifying-glass-loading"
-          wrapperStyle={{}}
-          wrapperClass="magnifying-glass-wrapper"
-          glassColor="#c0efff"
-          color="#e15b64"
-        />
-        <h2>Fetching Weather...</h2>
-
-        
-</div>
+          <MagnifyingGlass
+            visible={true}
+            height="200"
+            width="200"
+            ariaLabel="magnifying-glass-loading"
+            wrapperStyle={{}}
+            wrapperClass="magnifying-glass-wrapper"
+            glassColor="#c0efff"
+            color="#e15b64"
+          />
+          <h2>Fetching Weather...</h2>
+        </div>
       )}
     </>
   );
-}
+};
 
 export default App;
