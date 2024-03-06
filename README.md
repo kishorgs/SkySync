@@ -68,3 +68,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### some of the required libraries to install 
+
+Axios provides a robust error handling mechanism
+
+  `npm install axios`
+
+React icons library is a great resource for React developers, who can use its customizable SVG icons in their applications
+
+  `npm install react-icons`
+
+date-fns is the modular path to date/time manipulation
+
+  `npm install date-fns`
+
+react-loader-spinner is used to add spinner to the application
+
+  `npm install react-loader-spinner`
+
+
+
+
+### The above project is live in the below link
+
+[https://sky-sync.netlify.app/](https://sky-sync.netlify.app/)

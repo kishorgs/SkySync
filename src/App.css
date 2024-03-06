@@ -302,5 +302,9 @@ box-shadow: 10px 10px 14px -12px var(--shadow);
     padding-bottom: 0.5rem;
   }
 
+  #card{
+    padding:1rem 0;
+  }
+
  
 }
