@@ -17,7 +17,6 @@ Check out the live version of the Weather Application here: https://sky-sync.net
 
 - **Frontend**: ReactJS
 - **Backend**: Node.js, Express.js
-- **Database**: MongoDB
 - **Weather API**: WeatherAPI for fetching weather data
 
 ## Setup Instructions 🛠️
