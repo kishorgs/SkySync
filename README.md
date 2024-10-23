@@ -9,7 +9,7 @@ Check out the live version of the Weather Application here: https://sky-sync.net
 ## Features 🌟
 
 - **Responsive Design**: The application is optimized for various screen sizes, ensuring a seamless user experience on both desktop and mobile devices.
-- **5-Day Weather Forecast**: Users can view a detailed weather forecast for the next five days, including average temperatures and weather descriptions.
+- **3-Day Weather Forecast**: Users can view a detailed weather forecast for the next five days, including average temperatures and weather descriptions.
 - **Current Weather Data**: Get real-time weather information such as temperature, humidity, wind speed, and conditions for any city.
 - **Dark and Light Mode**: The application includes a dark mode feature for comfortable viewing at night, as well as a light mode for daytime use.
 
