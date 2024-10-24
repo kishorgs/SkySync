@@ -1,6 +1,6 @@
 # Weather Application
 
-Welcome to the Weather Application! This project is a MERN stack web application that provides real-time weather data and a 5-day forecast for cities around the world. It features a responsive design, dark mode, and user-friendly navigation.
+Welcome to the Weather Application! This project is a MERN stack web application that provides real-time weather data and a 3-day forecast for cities around the world. It features a responsive design, dark mode, and user-friendly navigation.
 
 ## Live Demo 🌐
 
