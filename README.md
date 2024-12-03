@@ -91,4 +91,3 @@ Check out the live version of the Weather Application here: https://sky-sync.net
 ## Contributing 🤝
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
-
