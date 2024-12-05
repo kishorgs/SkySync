@@ -13,6 +13,7 @@ Check out the live version of the Weather Application here: https://sky-sync.net
 - **Current Weather Data**: Get real-time weather information such as temperature, humidity, wind speed, and conditions for any city.
 - **Dark and Light Mode**: The application includes a dark mode feature for comfortable viewing at night, as well as a light mode for daytime use.
 
+
 ## Technologies Used 🛠️
 
 - **Frontend**: ReactJS
